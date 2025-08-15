@@ -1,6 +1,6 @@
 services: 
     server:
-        container_name: go-chat-service
+        container_name: gf-chat
         build: .
         restart: always
         ports: 

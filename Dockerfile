@@ -32,4 +32,4 @@ COPY --from=0 /go/src/customer-go-chat-service ./
 EXPOSE 8800/tcp
 
 # CMD 设置启动命令
-CMD ["./customer-go-chat-service", "http"]
+CMD ["./gf-chat", "http"]
