@@ -1,0 +1,16 @@
+services: 
+    server:
+        container_name: go-chat-service
+        build: .
+        restart: always
+        ports: 
+            - '8800:8800'
+        networks:
+            - network
+            - develop_backend
+
+networks:
+    network:
+        driver: "bridge"
+    develop_backend:
+        external: true  # 使用已创建的外部网络
