@@ -3,8 +3,9 @@ package frontend
 import (
 	"context"
 	baseApi "gf-chat/api"
-	"gf-chat/api/frontend/v1"
+	v1 "gf-chat/api/frontend/v1"
 	"gf-chat/internal/service"
+
 	"github.com/gogf/gf/v2/net/ghttp"
 )
 
@@ -15,7 +16,7 @@ type cUser struct {
 
 func (c cUser) Login(ctx context.Context, _ *v1.LoginReq) (res *baseApi.NormalRes[v1.LoginRes], err error) {
 	request := ghttp.RequestFromCtx(ctx)
-	_, token, err := service.User().Login(ctx, request)
+	_, token, err := service.User().FPLogin(ctx, request)
 	if err != nil {
 		return
 	}

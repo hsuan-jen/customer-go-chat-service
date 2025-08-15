@@ -2,8 +2,9 @@ package frontend
 
 import (
 	"context"
+	"fmt"
 	baseApi "gf-chat/api"
-	"gf-chat/api/frontend/v1"
+	v1 "gf-chat/api/frontend/v1"
 	"gf-chat/internal/service"
 	"net/http"
 
@@ -34,6 +35,7 @@ func (c cWs) Connect(ctx context.Context, _ *v1.ChatConnectReq) (res *baseApi.Ni
 		return
 	}
 	user := service.UserCtx().GetUser(ctx)
+	fmt.Printf("ws User: %v\n", user)
 	err = service.Chat().Register(ctx, user, conn, service.Platform().GetPlatform(ctx))
 	if err != nil {
 		return

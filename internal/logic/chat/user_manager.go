@@ -477,7 +477,7 @@ func (s *userManager) addToManual(ctx context.Context, user iChatUser) (session 
 	if session == nil {
 		return
 	}
-	message := service.ChatMessage().NewNotice(session, "正在为你转接人工客服")
+	message := service.ChatMessage().NewNotice(session, "connecting you to a live agent now")
 	message, err = service.ChatMessage().Insert(ctx, message)
 	if err != nil {
 		return nil, err

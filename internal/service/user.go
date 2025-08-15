@@ -5,6 +5,7 @@ import (
 	api "gf-chat/api/backend/v1"
 	"gf-chat/internal/model"
 	"gf-chat/internal/trait"
+
 	"github.com/gogf/gf/v2/os/gtime"
 
 	"github.com/gogf/gf/v2/frame/g"
@@ -23,6 +24,8 @@ type (
 		GetInfo(ctx context.Context, user *model.User) ([]api.UserInfoItem, error)
 		// GetActiveCount 获取某天活跃用户
 		GetActiveCount(ctx context.Context, customerId uint, date *gtime.Time) (count int, err error)
+		// FPLogin 使用指纹登录
+		FPLogin(ctx context.Context, request *ghttp.Request) (user *model.User, token string, err error)
 	}
 )
 
